@@ -1,0 +1,148 @@
+* {
+    box-sizing: border-box;
+}
+
+#contents_sub {
+    width: 900px;
+    height: auto;
+    margin: auto;
+}
+
+#contents_sub .btn_center {
+    text-align: center;
+}
+
+.btn_center .btn {
+    display: inline-block;
+    margin-top: 25px;
+}
+
+#contents_sub .sub_title {
+    background: url(../img/sub_title.png) no-repeat;
+    text-indent: -99999px;
+}
+
+#contents_sub .sub_title.title01 {
+    background-position: 0 -4px;
+    width: 290px;
+    height: 34px;
+} 
+
+#contents_sub .title_src {
+    font-size: 15px;
+    font-weight: bold;
+    margin: 20px 0;
+    color: #222;
+}
+
+.guide_txt {
+    color: rgb(202, 199, 199);
+    font-size: 11px;
+    padding-bottom: 7px;
+}
+
+.guide_txt .req {    
+    padding-left: 14px;
+    display: inline-block;
+    background: url(../img/bult.png) no-repeat 0 3px;
+    height: 14px;
+    width: auto;
+}
+form .req {
+    display: inline-block;
+    background: url(../img/bult.png) no-repeat 0 3px;
+    height: 14px;
+    width: 8px;
+    margin-left: -11px;
+    padding-right: 14px;
+}
+
+/* TODO: display: none is possible, but to make sure! */
+
+.hidden {
+    display: block;
+    width: 0;
+    height: 0;
+    font-size: 0;
+    line-height: 0;
+    text-indent: -99999px;
+}
+
+table .btn {
+    display: inline-block;
+    position: relative;
+    top: -8px;
+}
+
+
+.btn a {
+    display: inline-block;
+    background: url(../img/btn.png) no-repeat;
+    text-indent: -999999px;
+}
+
+.b_bdcheck a {
+    background-position: 0 -149px;
+    width: 58px;
+    height: 27px;
+}
+.b_pccheck a {
+    background-position: -60px -149px;
+    width: 79px;
+    height: 27px;
+    cursor: pointer;
+}
+
+.b_confirm a {
+    background-position: 0 -110px;
+    width: 66px;
+    height: 31px;
+}
+.b_cancel a {
+    background-position: -100px -110px;
+    width: 66px;
+    height: 31px;
+}
+
+.table_type01 {
+    border: 1px solid #ddd;
+    border-left: none;
+    border-right: none;
+}
+.table_type01 th {
+    border: 1px solid #ddd;
+    border-left: none;
+    background-color: #efefef;
+    font-weight: bold;
+    padding: 10px 0 10px 20px;
+}
+
+.table_type01 td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-right: none;
+}
+
+tbody td input[type="text"],
+tbody td input[type="password"] {
+    width: 110px;
+    height: 20px;
+    border: 1px solid #ccc;
+    padding: 5px;
+    border-radius: 3px;
+    margin-right: 2px;
+}
+
+select {
+    width: 120px;
+    /* padding: .4em .2em; */
+    border: 1px solid #999;
+    border-radius: 3px;
+    height: 21px;
+    /* appearance: none; 
+    아래 화살표 없애서 배경화면으로 높이 지정 가능 */
+}
+
+.caution1 {
+    margin-bottom: 2px;
+}

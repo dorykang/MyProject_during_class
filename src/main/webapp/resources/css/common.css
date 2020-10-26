@@ -1,0 +1,223 @@
+@charset "UTF-8";
+
+@import "reset.css";
+
+
+
+/****************************************
+		기본 링크(a 태그) 스타일
+*****************************************/
+
+#wrap {
+	width: 100%;
+	height: 100%;
+	margin: auto;
+}
+
+
+/****************************************
+				텍스트 정렬 스타일
+*****************************************/
+
+.txt_right {
+	text-align: right;	
+}
+
+/****************************************
+				상단 영역
+*****************************************/
+
+#header {
+	position: relative;
+	width: 970px;
+	height: 140px;
+	margin: auto;
+}
+
+/* header 안에 있는 h1 태그의 문자열을 없애고, 배경 이미지로 */
+/* logo.png로 설정 */
+
+
+#header > h1 {
+	text-indent: -9999px;
+	width: 181px;
+	height: 59px;
+	background: url(../img/logo.png) no-repeat;
+	margin-bottom: 10px;
+	
+/* 	현 css 문서는 html/main.html에 적용될 것이고,  */
+/* 	이미지 경로는 main.html을 기준으로 상대 경로로 지정해야 */
+}
+
+
+/****************************************
+				메뉴 작업
+	class menu의 위치는 상대적 위치로 지정하고, 너비는 100%
+	각 li의 너비는 194px로 정한다. 
+	float 개념으로 수평메뉴를 지정
+	배경색은 오렌지 계열 #f0932b 
+	hover 시에는 #ffbe76
+	
+*****************************************/
+
+.gnb {
+	position: absolute;
+	width: 100%;
+	height: 50px;
+	border: 0; 
+	overflow: hidden;
+	
+}
+.gnb > li {
+	width: 194px;
+	height: 100%;
+	float: left;
+	background-color: #eb4d4b;
+}
+
+.gnb .end {
+	float: none;
+	clear: both;
+	width: 0;
+	height: 0;
+}
+
+.gnb > li:hover {
+	background-color: #ff7979;
+}
+
+.gnb a {
+/* 	li 태그 안에는 a 태그만 있으므로 block 사용 가능. */
+	display: block;
+	width: auto;
+	height: 100%;
+	text-align: center;
+	line-height: 50px;
+}
+
+.gnb span {
+/* 	display: inline-block; */
+	/* 	position: relative; */
+	color: white;
+	height: 16px;
+	font-size: 16px;
+	font-weight: bold;
+	font-family: 'Noto Sans KR', sans-serif;
+	background: url(../img/gnb_bult.png) no-repeat;
+	padding-left: 30px;
+/* 	text-indent: 30px */
+}
+
+#header .m02 {
+	background-position: 0 -22px; 
+}
+#header .m03 {
+	background-position: 0 -44px;
+}
+#header .m04 {
+	background-position: 0 -66px;
+}
+#header .m05 {
+	background-position: 0 -88px;
+}
+
+
+/****************************************
+				기타 스타일
+*****************************************/
+
+/* 문자열을 공간에 맞도록 표현 및 줄임표 표현 */
+.ellip {
+	display: inline-block;
+	width: 100%;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.fclear {
+	float: none;
+	clear: both;
+	display: block;
+	height: 0 !important; 
+	/* 	!important  CSS를 적용하다보면 다른 CSS 파일에서 
+	중복 적용되는 부분이 더러 생길 수 있음. 그래서 우선시 하겠다는 의미*/
+}
+
+.fr {
+	float: right !important;
+}
+
+
+/****************************************
+				footer 스타일
+*****************************************/
+
+#footer {
+	width: auto;
+	margin-top:100px;
+	background: #eee;
+	/* height: 70px; */
+}
+
+#footer .footer_area {
+	width: 900px;
+	margin: auto;
+	padding: 30px 0;
+}
+
+#footer .footer_guide { 
+	display: block;
+	white-space:nowrap;
+	overflow: hidden;
+	padding-bottom: 20px;
+}
+
+.footer_guide > li {
+	display: inline-block;
+	padding: 0 10px;
+	border-left: 1px solid #999;
+}
+
+#footer .footer_guide li:first-child {
+	border-left: none;
+	padding-left: 0;
+} 
+
+#footer .footer_guide li a {
+	color: #777;
+	font-size: 12px;
+	font-weight: bold;
+}
+#footer .footer_guide li a:hover {
+	color: #ff4f00;
+}
+
+#footer address {
+	color: #777;
+	font-size: 12px;
+	padding-bottom: 6px;
+}
+
+#footer .copyright {
+	font-size: 10px;
+}
+
+
+/****************************************
+				btn 스타일
+*****************************************/
+
+/* TODO: 추후에 common에 맞게 바꾸기 */
+
+/* .btn {
+    position: relative;
+    top: -10px;
+    display: inline-block;
+}
+
+.btn a {
+    display: inline-block;
+    background: url(../img/btn.png) no-repeat;
+    text-indent: -999999px;
+} */

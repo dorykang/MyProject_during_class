@@ -1,0 +1,233 @@
+@charset "UTF-8";
+
+
+#contents {
+	width: 970px;
+	height: auto;
+	margin: auto;
+}
+
+#contents .main_img {
+	width: 100%;
+	height: 360px;
+}
+
+#contents .main_img img {
+	width: 100%;
+	height: 100%;
+	margin-top: -32px;
+}
+
+
+/* 메인 이미지 아래의 뉴스 */
+#contents .main_news {
+	width: auto;
+	height: 240px;
+	background: url(../img/gra_bg.png) repeat-x;
+	padding: 40px 50px;
+}
+
+#contents .news_type01, 
+.main_board .board_type01 {
+/* 	아이디가 contents인 요소의 자손들 중 클래스가 news_type01인 경우   */
+	width: 245px;
+	height: 120px;
+/* 	overflow: hidden; */
+	float: left;
+}
+
+/* #contents .news_type01, */
+/* #contents .board_type01:not(:last-child()) { */
+/* 	margin-right: 45px; */
+/* } */
+#contents .news_type01 {
+	margin-right: 45px;
+}
+
+#contents .title {
+	height: 20px;
+	text-indent: -99999px;
+	background: url(../img/main_title.png) no-repeat;
+}
+
+
+#contents .news_type01 .cen {
+/* 	아이디가 contents인 요소의 자손들 중 클래스가 news_type01인 요소 중 cen이라는 클래스도 같이 가지고 있는 요소들을 선택한다.  */
+	margin: 0 60px;
+}
+
+#contents .news_type01:nth-child(2) .title {
+	background-position: 0 -20px;
+}
+#contents .news_type01:nth-child(3) .title {
+	background-position: 0 -40px;
+}
+
+/* #contents .news_type01 > .news_src { */
+/* 	display: block; */
+/* 	overflow: hidden; */
+/* } */
+
+#contents .main_news .news_src .thum_img {
+	position: relative;
+	display: inline-block;
+	overflow: hidden;
+	width: 245px;
+	height: 148px;
+}
+
+#contents .main_news .news_src .thum_img img{
+	width: 100%;
+	height: 100%;
+}
+
+#contents .main_news .news_type01 .thum_img .btn_ply {
+	display: inline-block;
+	width: 52px;
+	height: 51px;
+	position: absolute;
+	top: 50px;
+	left: 96px;
+	background: url(../img/icon_play.png) no-repeat;
+}
+
+.main_news .news_type01 .subject {
+	height: 35px;
+	font-weight: bold;
+	line-height: 35px;
+	
+}
+.main_news .news_type01 .subject:hover {
+	color: #ff5001;
+}
+
+.main_news .news_type01 .writer {
+	float: left;
+}
+
+.main_news .news_type01 .more_view {
+	float: right;
+}
+
+/**********************************************************/ 
+
+.main_board {
+	width: auto;
+	height: 240px;
+	padding: 40px 50px;
+}
+
+.board_type01 {
+	position: relative;
+	width: 250px;
+/* 	overflow: hidden; */
+	float: left;
+}
+
+.board_type01 .notice {
+	border-top: 1px solid #efefef;
+	display: inline-block;
+    overflow: hidden;
+    padding-top: 6px;
+    width: 100%;
+}
+
+.notice li {
+	position: relative;
+	height: 23px;
+	line-height: 23px;
+}
+.notice a {
+	display: inline-block;
+	width: 200px;
+	height: 23px;
+	margin-top: 8px;
+	
+/* 	float: left; */
+	
+}
+.notice .date {
+	position: absolute;
+	right: 0px;
+	top: 11px;
+	font-size: 11px;
+/* 	float: right; */
+	
+}
+
+.board_type01:nth-child(1) > .title {
+/* 	border-bottom: 1px solid #efefef; */
+	margin-bottom: 7px;
+}
+#contents .board_type01:nth-child(1) > .title {
+	background-position: 0 -60px;
+}
+#contents .board_type01:nth-child(2) > .title {
+	background-position: 0 -80px;
+	margin-bottom: 7px;
+}
+
+.main_board .board_type01 .more_view {
+	position: absolute;
+	right: 0;
+	top: 10px;
+}
+.board_type01 .article {
+	border-top: 1px solid #efefef;
+	display: block;
+	overflow: hidden;
+ 	padding-top: 8px;
+}
+.board_type01 .article .thum_img{
+/* 	float: left; */
+
+	margin-right: 5px;
+	width: 67px;
+	height: 67px;
+}
+.board_type01 .article .src {
+	/* float: right; */
+    display: inline-block;
+    position: absolute;
+    line-height: 1;
+    text-align: justify;
+}
+
+/****** 배너 작업 *******/
+
+.main_board .board_type01.fr {
+	width: 285px;
+
+}
+.board_type01 .banner {
+	display: inline-block;
+	width: 137px;
+	height: 118px;
+	border: 1px solid #efefef;
+	text-indent: -9999999px;
+	background: url(../img/main_banner.png) no-repeat;
+	
+}
+
+.board_type01 .banner a {
+	display: block;
+	width: 100%;
+	height: 100%;
+}
+.board_type01 .banner:last-child {
+	background-position: -137px 0;
+}
+
+.main_board .board_type01.cen {
+	margin-right: 45px;
+	margin-left: 45px;
+	
+}
+
+
+/* .board_type01:nth-child(3) a { */
+/* 	width: 100%; */
+/* 	height: 100%; */
+/* } */
+
+
