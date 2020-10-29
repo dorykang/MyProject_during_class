@@ -54,4 +54,5 @@ public class BbsController {
 		mv.setViewName("bbs/list");
 		return mv;
 	}
+
 }

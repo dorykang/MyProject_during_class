@@ -28,58 +28,70 @@
 	<!-- 상단 영역 끝 -->
 	<!-- 콘텐츠 영역 -->
 	<div id="contents_sub">
-		<h1 style="font-size: 30px; colorl: #000; margin-bottom: 20px;">SKT와 사회공헌</h1>
+		<h1 style="font-size: 30px; colorl: #000; margin-bottom: 20px;">사회공헌 보기</h1>
 		<div class="bbs_area" id="bbs">
-		<table summary="게시판 목록">
-			<caption>게시판 목록</caption>
-			<thead>
-				<tr class="title">
-					<th class="no">번호</th>
-					<th class="subject">제목</th>
-					<th class="writer">글쓴이</th>
-					<th class="reg">날짜</th>
-					<th class="hit">조회수</th>
-				</tr>
-			</thead>
-			
-			<tfoot>
-            	<tr>
-                	<td colspan="4">
-                		${requestScope.p_code }
-                    </td>
-					<td>
-						<input type="button" value="글쓰기" id="write_btn"/>
-					</td>
-                </tr>
-            </tfoot>
-            
-			<tbody>
-				<c:if test="${ar ne null}">
-					<c:forEach var="vo" items="${requestScope.ar }" varStatus="st">
+			<form method="post" name="frm" >
+				<input type="hidden" name="cPage" value="${param.cPage}"/>
+				<table summary="게시판 글쓰기">
+					<caption>게시판 글쓰기</caption>
+					<tbody>
 						<tr>
-							<td>${rowTotal-st.index-(blockList*(nowPage-1))}</td>
-							<td style="text-align: left">
-								<a href="view?cPage=${nowPage}&b_idx=${vo.b_idx}">${vo.subject}</a>
-							</td>
-							<td>${vo.writer}</td>
+							<th>제목:</th>
+							<td>${vo.subject}</td>
+						</tr>
+		
+						<tr>
+							<th>첨부파일:</th>
 							<td>
-								<c:if test="${vo.write_date ne null }">
-									${fn:substring(vo.write_date, 0, 10)}
+								<c:if test="${vo.file_name ne null}">
+								<a href="javascript:fDown('${vo.file_name}')">
+									<!--파일이름 클릭 시, 다운로드할 수 있게 하는 코드-->
+									${vo.file_name}
+								</a>
 								</c:if>
 							</td>
-							<td>${vo.hit}</td>
 						</tr>
-					</c:forEach>
-				</c:if>
-				<c:if test="${ar eq null}">
-					<tr>
-						<td colspan="5" class="empty">
-							등록된 게시물이 없습니다.
-						</td>
-					</tr>
-				</c:if>
-			</tbody>
-		</table>
+						
+						<tr>
+							<th>이름:</th>
+							<td>${vo.writer}</td>
+						</tr>
+						<tr>
+							<th>내용:</th>
+							<td>${vo.content}</td>
+						</tr>
+						
+						<tr>
+							<td colspan="2">
+								<c:if test="${vo.writer eq mvo.m_name }">
+									<input type="button" value="수정" onclick="editBbs()"/>
+									<input type="button" value="삭제" onclick="delBbs()"/>
+								</c:if>  
+								<input type="button" value="목록" onclick="goBack()"/>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</form>
+			<form method="post" action="ans_write.jsp">
+				이름:<input type="text" name="writer"/><br/>
+				내용:<textarea rows="4" cols="55" name="comm"></textarea><br/>
+				비밀번호:<input type="password" name="pwd"/><br/>
+				
+				
+				<input type="hidden" name="b_idx" value="${vo.b_idx }">
+				<input type="hidden" name="index" value=""/>
+				<input type="submit" value="저장하기"/> 
+			</form>
+	
+			댓글들<hr/>
+			<c:forEach var="cvo" items="${vo.c_list }">
+				<div>
+					이름: ${cvo.writer} &nbsp;&nbsp;
+					날짜:${cvo.write_date}<br/>
+					내용:${cvo.content}
+				</div>
+			</c:forEach>
 		</div>
 	</div>
 	<!-- 콘텐츠 영역 끝-->
@@ -108,23 +120,13 @@
 </div>
 <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
 <script>
-	$(function(){
-		$("#write_btn").bind("click",function(){
-			console.log("안녀엉어어어어어어엉어어어어엉");
-			$.ajax({
-				url: "write",
-				dataType: "json"
-			}).done(function(data){
-				//data안에 chk라는 변수 0이면 로그인이 필요한 상황
-				if(data.chk == "0"){
-					alert("로그인이 필요합니다.");
-				}else if(data.chk =="1"){
-					//글쓰기 화면으로 이동!
-					location.href=data.url;
-				}
-			});	
-		});
-	});
+	function goBack(){
+		location.href="bbs?cPage=${param.cPage}"
+	}
+	function editBbs(){
+		document.frm.action="edit";
+		document.frm.submit();
+	}
 </script>
 </body>
 </html>

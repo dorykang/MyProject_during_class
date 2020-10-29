@@ -52,10 +52,10 @@
 	</select>
 	
 	<!--원글 수정-->
-	<update id="edit" parameterType="java.util.Map">
-		update bbs set subject=#{subject}, content=#{content}
-		<if test="fname != null">
-			, file_name = #{fname}
+	<update id="edit" parameterType="mybatis.vo.BbsVO">
+		update bbs set subject=#{subject}, content=#{content},
+		<if test="file_name != null">
+			, file_name = #{file_name}
 			<!--fname이라는 "변수"가 존재하는 경우에만 수행-->
 		</if>
 		where b_idx=#{b_idx}
@@ -64,6 +64,11 @@
 	<!--원글 삭제-->
 	<update id="delBbs" parameterType="String">
 		update bbs set status=1 where b_idx=#{b_idx}
+	</update>
+
+	<!--조회수 증가-->
+	<update id="update_hit" parameterType="String">
+		update bbs set hit = hit +1 where b_idx=#{b_idx}
 	</update>
 
 </mapper>

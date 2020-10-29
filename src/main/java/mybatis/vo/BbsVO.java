@@ -22,6 +22,8 @@ public class BbsVO {
 	
 	private List<CommVO> c_list; //원글에 포함되는 댓글들이 저장되는 곳
 	
+	private int cPage;
+	
 	public String getB_idx() {
 		return b_idx;
 	}
@@ -93,6 +95,12 @@ public class BbsVO {
 	}
 	public void setFile(MultipartFile file) {
 		this.file = file;
+	}
+	public int getcPage() {
+		return cPage;
+	}
+	public void setcPage(int cPage) {
+		this.cPage = cPage;
 	}
 						 
 }

@@ -62,20 +62,10 @@ public class BbsDAO {
 	}
 	
 	//수정 기능
-	public  boolean editBbs(String b_idx, String subject, 
-			String content, String fname, String ip) {
+	public  boolean editBbs(BbsVO vo) {
 		boolean value=false;
 		
-		Map<String, String> map = new HashMap<String, String>();
-		map.put("b_idx", b_idx);
-		map.put("subject" , subject);
-		map.put("content", content);
-		//파일첨부가 되었을 때만 파일명을 DB에 저장
-		//만약 첨부된 파일이 없다면 기본파일을 유지하자.
-		if(fname != null && fname.trim().length() > 0) { //새로 첨부된 파일이 없다면 fname에는 null값 들어감.
-			map.put("fname", fname);
-		}
-		int cnt = sst.update("bbs.edit", map);
+		int cnt = sst.update("bbs.edit", vo);
 		if ( cnt > 0 ) {
 			value=true;
 		}
@@ -85,6 +75,16 @@ public class BbsDAO {
 	//삭제 기능
 	public  void delBbs(String b_idx) {
 		sst.update("bbs.delBbs", b_idx);
+	}
+	
+	//조회수 증가 기능
+	public boolean updateHit(String b_idx) {
+		int cnt=sst.update("bbs.update_hit", b_idx);
+		boolean value=false;
+		if(cnt>0) {
+			value= true;
+		}
+		return value;		
 	}
 	
 }

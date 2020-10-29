@@ -19,6 +19,7 @@ import org.springframework.web.servlet.ModelAndView;
 import mybatis.dao.BbsDAO;
 import mybatis.vo.BbsVO;
 import mybatis.vo.MemVO;
+import spring.util.FileUploadUtil;
 
 @Controller
 public class WriteController {
@@ -88,7 +89,8 @@ public class WriteController {
 			//파일명 얻기
 			String f_name = mf.getOriginalFilename();
 			
-			//동일한 파일명이 있다면 변경해야 한다. 28일에 할 것
+			//동일한 파일명이 있다면 변경해야 한다.
+			f_name=FileUploadUtil.checkSameFileName(f_name, path);
 			
 			//업로드
 			mf.transferTo(new File(path, f_name)); 
@@ -105,7 +107,7 @@ public class WriteController {
 		
 		//로그인한 정보를 얻어낸다. 
 		MemVO mvo=(MemVO)session.getAttribute("mvo");
-		vo.setWriter(mvo.getM_name());
+		vo.setWriter(mvo.getM_name()); //b_dao에 add()하기 전에 vo에 writer를 넣어줘야 한다.
 		
 		b_dao.add(vo); //mapper도 고치고 dao도 고쳐야 한다. 
 		
