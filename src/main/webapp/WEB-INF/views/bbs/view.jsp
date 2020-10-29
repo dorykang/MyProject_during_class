@@ -127,6 +127,16 @@
 		document.frm.action="edit";
 		document.frm.submit();
 	}
+	function fDown(fname){
+		//FileDownload라는 서블릿을 호출!
+		location.href="FileDownload?dir=/resources/upload&filename="+encodeURIComponent(fname);
+		
+		//get방식 한글처리를 하기 위해서는 톰캣의 server.xml에서 
+		//<Connector port="8080" protocol="HTTP/1.1" ... 라고 쓰인 부분
+		//URIEncoding="utf-8" 라고 추가해야 한다.
+		//원래는 <Connector port="8009" protocol="AJP/1.3"...라고 쓰인 부분에도 추가해야 하는데
+		//왜 때문인지 현재 주석처리되어있다. 
+	}
 </script>
 </body>
 </html>
